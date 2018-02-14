@@ -1,0 +1,76 @@
+Bryant Wong
+CSCI 2421 Homework 4 Analysis
+
+f(n) = 1
+HW4::MyVector::MyVector()	
+{
+	vec = new ItemType[vsize]; 		//f(n) = 1   (declaring a value equal to another)
+}
+
+
+f(n) = 1
+HW4::MyVector::~MyVector()
+{
+	delete[] vec;			//f(n) = 1  (deleting a pointer)
+}
+
+
+//f(n) = 1
+ HW4::ItemType HW4::MyVector::operator[](int index)
+{
+	return vec[index];		//f(n) = 1	(access a variable in an array)
+}
+
+
+///f(n) = 3
+void HW4::MyVector::pop_back()
+{
+	if (vsize == 0)			//f(n)=1	(access a variable)
+		std::cout << "Vector is empty, cannot remove any items" << std::endl;	//f(n) = 0  
+	else if (vsize > 0)	//f(n) = 1	(access a variable)
+		vsize--;		//f(n) = 1	access a variable
+}
+
+
+
+//f(n) = 2
+void HW4::MyVector::push_back(ItemType& value)
+{
+	vsize++;		//(f(n) = 1 	(access a variable)
+	vec[vsize-1] = value;	//f(n) = 1	(declaring a value equal to another)
+}
+
+
+//f(n) = 1
+int HW4::MyVector::size()
+{
+	return vsize;		//f(n) = 1	(access a varaible)
+}
+
+
+//f(n) = 4
+bool HW4::MyVector::empty()
+{
+	if (vsize == 0)		//f(n) = 1	(access a variable)
+		return true;	//f(n) = 1 	(access a variable)
+	else			//f(n) = 1	(access a variable)
+		return false;	//f(n) = 1 	(access a variable)
+}
+
+
+
+
+//f(n) = n + 5
+int HW4::MyVector::search(ItemType& value)
+{
+	int index = 0;		//f(n) =1	(sets a value equal to another)
+	while (vec[index] != value && index < vsize)	//f(n) = n 	(loop can execute vsize times where vsize is n)
+		index++;	//f(n) = 1 	(access a variable)
+	if (index == vsize)	//f(n) = 1	(acess a variable)
+		index = -1;	//f(n) = 1	(set a value equal to another)
+	return index;		//f(n) = 1	(access a variable)
+
+}
+
+
+f(1)+f(1)+f(1)+f(3)+f(2)+f(1)+f(4)+f(n+5) = O(n)
